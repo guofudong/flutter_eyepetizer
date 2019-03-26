@@ -1,0 +1,37 @@
+name: flutter_eyepetizer
+description: A new Flutter module.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  dio: ^2.1.0
+  http: ^0.12.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - images/ic_action_search.png
+    - images/ic_tab_strip_icon_category.png
+    - images/ic_tab_strip_icon_category_selected.png
+    - images/ic_tab_strip_icon_feed.png
+    - images/ic_tab_strip_icon_feed_selected.png
+    - images/ic_tab_strip_icon_follow.png
+    - images/ic_tab_strip_icon_follow_selected.png
+    - images/ic_tab_strip_icon_profile.png
+    - images/ic_tab_strip_icon_profile_selected.png
+    - images/ic_home_public.png
+
+  module:
+    androidPackage: com.gfd.flutter_eyepetizer
+    iosBundleIdentifier: com.gfd.flutterEyepetizer
