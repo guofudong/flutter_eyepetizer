@@ -1,8 +1,10 @@
 # flutter_eyepetizer
 
-A new Flutter module.
+Flutter高仿开眼App。
 
-## Getting Started
+## 效果图
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+### 首页-发现
+![](/screenshot/home_find01.png)  ![](/screenshot/home_find02.png)
+
+
