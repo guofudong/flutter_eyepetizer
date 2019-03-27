@@ -28,7 +28,7 @@ class _ListMultiViewState extends State<ListMultiView> {
       itemBuilder: _itemBuilder,
       separatorBuilder: (BuildContext context, int index) {
         return Divider(
-            height: 2.0, color: Color.fromARGB(20, 6, 6, 6), indent: 12);
+            height: 2.0, color: Color.fromARGB(32, 6, 6, 6), indent: 12);
       },
     );
   }

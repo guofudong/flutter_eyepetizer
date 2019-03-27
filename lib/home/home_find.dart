@@ -12,6 +12,7 @@ class HomeFindPage extends StatefulWidget {
 class _HomeFindPageState extends State<HomeFindPage> {
   List<HomeFind> _listData = homeFindList;
   List<String> _headerDatas = ["我是头部"];
+  int _count = 0;
 
   @override
   void initState() {
@@ -130,68 +131,91 @@ class _HomeFindPageState extends State<HomeFindPage> {
             )),
       );
     } else {
-      //热门主题
+      //推荐主题
       int index = position % homeFindList2.length;
-      return Column(
-        children: <Widget>[
-          Offstage(
-              offstage: index != 2,
-              child: Padding(
-                padding: EdgeInsets.only(left: 10),
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(height: 8),
-                    Align(
-                        alignment: FractionalOffset.centerLeft,
-                        child: Text("热门分类",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                                fontSize: 22))),
-                    SizedBox(height: 6)
-                  ],
-                ),
-              )),
-          ListTile(
-            contentPadding:
-                EdgeInsets.only(left: 10, top: 0, bottom: 0, right: 10),
-            leading: Container(
-              width: 46,
-              height: 46,
-              child: Card(
-                clipBehavior: Clip.antiAlias,
-                child: Image.network(
-                  homeFindList2[index].bgPicture,
-                  fit: BoxFit.cover,
+      _count++;
+      debugPrint("索引值：$index");
+      final titles = ["推荐主题", "推荐作者"];
+      final isNewType = _count == 5;
+      String title = isNewType ? titles[1] : titles[0];
+      return GestureDetector(
+        onTap: () {
+          //跳转到详情页面
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (BuildContext context) {
+            return HomeFindDetail(name: homeFindList1[index].name);
+          }));
+        },
+        child: Column(
+          children: <Widget>[
+            Offstage(
+                offstage: index != 2,
+                child: Padding(
+                  padding: EdgeInsets.only(left: 10),
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 8),
+                      Align(
+                          alignment: FractionalOffset.centerLeft,
+                          child: Text(title,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: 22))),
+                      SizedBox(height: 6)
+                    ],
+                  ),
+                )),
+            ListTile(
+              contentPadding:
+                  EdgeInsets.only(left: 10, top: 0, bottom: 0, right: 10),
+              leading: isNewType
+                  ? ClipOval(
+                      child: FadeInImage.assetNetwork(
+                          fit: BoxFit.cover,
+                          width: 46,
+                          height: 46,
+                          placeholder: homeFindList2[index].bgPicture,
+                          image: homeFindList2[index].bgPicture),
+                    )
+                  : Container(
+                      width: 46,
+                      height: 46,
+                      child: Card(
+                        clipBehavior: Clip.antiAlias,
+                        child: Image.network(
+                          homeFindList2[index].bgPicture,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+              title: Text(
+                homeFindList2[index].name,
+                style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+              subtitle: Text(homeFindList2[index].description),
+              trailing: Container(
+                width: 48,
+                height: 20,
+                child: OutlineButton(
+                  padding: EdgeInsets.all(0),
+                  disabledBorderColor: Colors.black,
+                  borderSide: BorderSide(width: 0.2),
+                  child: Text(
+                    "+关注",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 11),
+                  ),
                 ),
               ),
-            ),
-            title: Text(
-              homeFindList2[index].name,
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-            subtitle: Text(homeFindList2[index].description),
-            trailing: Container(
-              width: 48,
-              height: 20,
-              child: OutlineButton(
-                padding: EdgeInsets.all(0),
-                disabledBorderColor: Colors.black,
-                borderSide: BorderSide(width: 0.2),
-                child: Text(
-                  "+关注",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 11),
-                ),
-              ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       );
     }
   }

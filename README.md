@@ -12,4 +12,5 @@ Flutter高仿开眼App。
 ### 首页-发现
 ![](/screenshot/home_find01.png)  ![](/screenshot/home_find02.png)
 
+![](/screenshot/home_find_detail.png)
 ### 后续功能实现中。。。。。。
