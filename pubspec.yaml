@@ -6,6 +6,7 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
+#Flutter应用依赖
 dependencies:
   flutter:
     sdk: flutter
@@ -14,13 +15,14 @@ dependencies:
   http: ^0.12.0
   video_player: 0.10.0+2
 
+#开发环境依赖的工具包
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
   uses-material-design: true
-
+  #配置本地图片
   assets:
     - images/ic_action_search.png
     - images/ic_tab_strip_icon_category.png
@@ -32,6 +34,15 @@ flutter:
     - images/ic_tab_strip_icon_profile.png
     - images/ic_tab_strip_icon_profile_selected.png
     - images/ic_home_public.png
+    - images/ic_menu_heart.png
+    - images/ic_menu_more.png
+    - images/ic_menu_download.png
+    - images/ic_default_avatar.png
+    - images/ic_bg_login.png
+    - images/ic_account_login_header.png
+    - images/ic_account_login_wechat.png
+    - images/ic_account_login_qq.png
+    - images/ic_account_login_weibo.png
 
   module:
     androidPackage: com.gfd.flutter_eyepetizer
