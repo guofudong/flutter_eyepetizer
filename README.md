@@ -7,6 +7,9 @@ Flutter高仿开眼App。
 
 [Widget学习Demo](https://coding.net/u/ninghao/p/ninghao_flutter/git/tree/master/lib)
 
+[视频教程](https://pan.baidu.com/s/12W9nSbw7v3QoQ-pmXfCrAw)
+> 提取码：3k9x
+
 ## 效果图
 
 ### 首页
