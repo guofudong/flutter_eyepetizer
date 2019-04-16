@@ -9,10 +9,10 @@ Flutter高仿开眼App。
 
 ## 效果图
 
-### 首页-发现
+### 首页
 ![](/screenshot/home_find01.png)  ![](/screenshot/home_find02.png)
 
-![](/screenshot/home_find_detail.png)
+![](/screenshot/home_find_detail.png)  ![](/screenshot/home_recommend.png)
 
 ### 我的
 ![](/screenshot/personal.png)  ![](/screenshot/personal_login.png)

@@ -93,7 +93,7 @@ class _HomeFindDetailListWidgetState extends State<HomeFindDetailListWidget> {
 
   void _getListData() async {
     final response = await http.get(URL_HOME_FIND_DETAIL_LIST);
-    debugPrint("获取的数据为：${response.body}");
+    debugPrint("首页发现列表数据为：${response.body}");
     final Map<String, dynamic> responseBody = json.decode(response.body);
     _listDatas = HomeFindDetailListEntity.fromJson(responseBody);
     setState(() {
