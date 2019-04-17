@@ -17,7 +17,9 @@ Flutter高仿开眼App。
 
 ![](/screenshot/home_find_detail.png)  ![](/screenshot/home_recommend.png)
 
+![](/screenshot/home_daily.png)  ![](/screenshot/home_web.png)
 ### 我的
 ![](/screenshot/personal.png)  ![](/screenshot/personal_login.png)
 
 ### 后续功能实现中。。。。。。
+ 

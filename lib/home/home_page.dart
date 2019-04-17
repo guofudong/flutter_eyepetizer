@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_eyepetizer/home/home_attention.dart';
+import 'package:flutter_eyepetizer/home/home_daily.dart';
 import 'package:flutter_eyepetizer/home/home_find.dart';
 import 'package:flutter_eyepetizer/home/home_recommend.dart';
 import 'package:flutter_eyepetizer/search/search_page.dart';
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                           tabs: [
                             Tab(child: Text("发现")),
                             Tab(child: Text("推荐")),
-                            Tab(child: Text("关注"))
+                            Tab(child: Text("日报"))
                           ]),
                     ),
                   ),
@@ -73,7 +73,7 @@ class HomePage extends StatelessWidget {
               children: <Widget>[
                 HomeFindPage(),
                 HomeRecommendPage(),
-                HomeAttentionPage(),
+                HomeDailyPage(),
               ],
             )));
   }

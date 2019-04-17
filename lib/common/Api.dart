@@ -9,3 +9,6 @@ const String URL_HOME_FIND_DETAIL_LIST =
 ///首页-推荐数据
 const String URL_HOME_RECOMMEND =
     "https://easy-mock.com/mock/5cb439ce5fb5a37183de0111/recommend";
+///首页-日报数据
+const String URL_HOME_DAILY =
+    "https://easy-mock.com/mock/5cb439ce5fb5a37183de0111/daily";

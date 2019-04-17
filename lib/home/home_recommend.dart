@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_eyepetizer/common/Api.dart';
+import 'package:flutter_eyepetizer/common/common_webview.dart';
 import 'package:flutter_eyepetizer/model/entity/HomeRecommendEntity.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -67,8 +68,13 @@ class _HomeRecommendPageState extends State<HomeRecommendPage> {
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                       clipBehavior: Clip.antiAlias,
-                      child: Image.network(recommendData.image,
-                          fit: BoxFit.cover))),
+                      child:GestureDetector(
+                        onTap: (){
+                          _toWebViewPage(recommendData.webUrl);
+                        },
+                        child:  Image.network(recommendData.image,
+                            fit: BoxFit.cover),
+                      ))),
               Positioned(
                   bottom: 12,
                   right: 10,
@@ -130,65 +136,75 @@ class _HomeRecommendPageState extends State<HomeRecommendPage> {
   Widget _subItemBuilder(
       BuildContext context, int index, DataListBean recommendData) {
     var data = recommendData.list[index];
-    return Flex(
-      direction: Axis.horizontal,
-      children: <Widget>[
-        Expanded(
-            flex: 1,
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  child: Card(
-                    clipBehavior: Clip.antiAlias,
-                    child: Container(
-                      height: 100,
-                      child: Image.network(data.image, fit: BoxFit.cover),
-                    ),
-                  ),
-                ),
-                Positioned(
-                    bottom: 10,
-                    right: 8,
-                    child: Container(
-                      padding: EdgeInsets.all(2),
-                      decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.all(Radius.circular(2))),
-                      child: Text(data.time,
-                          style: TextStyle(fontSize: 14, color: Colors.white)),
-                    ))
-              ],
-            )),
-        Expanded(
-            flex: 1,
-            child: Container(
-              height: 100,
-              padding: EdgeInsets.only(top: 4, bottom: 4,left: 8),
+    return GestureDetector(
+      onTap: (){},
+      child: Flex(
+        direction: Axis.horizontal,
+        children: <Widget>[
+          Expanded(
+              flex: 1,
               child: Stack(
                 children: <Widget>[
+                  Container(
+                    child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      child: Container(
+                        height: 100,
+                        child: Image.network(data.image, fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
                   Positioned(
-                      left: 0,
-                      top: 0,
-                      right: 0,
-                      child: Text(data.title,
-                          style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold))),
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    child: Text(recommendData.name,
-                        style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.normal),
-                        maxLines: 1),
-                  )
+                      bottom: 10,
+                      right: 8,
+                      child: Container(
+                        padding: EdgeInsets.all(2),
+                        decoration: BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.all(Radius.circular(2))),
+                        child: Text(data.time,
+                            style: TextStyle(fontSize: 14, color: Colors.white)),
+                      ))
                 ],
-              ),
-            ))
-      ],
+              )),
+          Expanded(
+              flex: 1,
+              child: Container(
+                height: 100,
+                padding: EdgeInsets.only(top: 4, bottom: 4,left: 8),
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                        left: 0,
+                        top: 0,
+                        right: 0,
+                        child: Text(data.title,
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold))),
+                    Positioned(
+                      bottom: 0,
+                      left: 0,
+                      child: Text(recommendData.name,
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.normal),
+                          maxLines: 1),
+                    )
+                  ],
+                ),
+              ))
+        ],
+      ),
     );
+  }
+
+  ///跳转到WebView 页面
+  void _toWebViewPage(String webUrl) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+      return WebViewPage(url: webUrl);
+    }));
   }
 }

@@ -14,6 +14,7 @@ dependencies:
   dio: ^2.1.0
   http: ^0.12.0
   video_player: 0.10.0+2
+  flutter_webview_plugin: ^0.3.3
 
 #开发环境依赖的工具包
 dev_dependencies:
