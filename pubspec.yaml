@@ -44,6 +44,8 @@ flutter:
     - images/ic_account_login_wechat.png
     - images/ic_account_login_qq.png
     - images/ic_account_login_weibo.png
+    - images/no_account_tip.png
+    - images/ic_action_focus.png
 
   module:
     androidPackage: com.gfd.flutter_eyepetizer
