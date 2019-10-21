@@ -21,5 +21,6 @@ Flutter高仿开眼App。
 ### 我的
 ![](/screenshot/personal.png)  ![](/screenshot/personal_login.png)
 
-### 后续功能实现中。。。。。。
- 
+### 关注公众号，获取更多资源
+
+![](/screenshot/qcode.jpg)
